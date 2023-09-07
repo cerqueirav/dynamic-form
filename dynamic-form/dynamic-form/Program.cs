@@ -1,7 +1,15 @@
+using dynamic_form.Data.Context;
+using dynamic_form.Data.Repository;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+var connectionDynamicDb = builder.Configuration["ConnectionString:Database"];
+builder.Services.AddDbContext<DynamicContext>(options => options.UseSqlServer(connectionDynamicDb));
+builder.Services.AddScoped<IFieldRepository, FieldRepository>();
 
 var app = builder.Build();
 

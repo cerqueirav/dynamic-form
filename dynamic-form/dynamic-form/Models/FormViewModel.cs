@@ -2,7 +2,7 @@
 {
     public class FormViewModel
     {
-        public List<Field> components;
+        public ICollection<Field> components;
         
         public FormViewModel() 
         {
