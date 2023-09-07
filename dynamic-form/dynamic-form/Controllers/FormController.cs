@@ -4,18 +4,23 @@ using System.Diagnostics;
 
 namespace dynamic_form.Controllers
 {
-    public class HomeController : Controller
+    public class FormController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<FormController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public FormController(ILogger<FormController> logger)
         {
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Insert()
         {
             return View();
+        }
+
+        public IActionResult Form()
+        {
+            return View(new FormViewModel());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

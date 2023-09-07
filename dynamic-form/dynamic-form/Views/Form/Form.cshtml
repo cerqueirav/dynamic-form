@@ -1,0 +1,21 @@
+﻿@model FormViewModel
+
+@{
+    ViewData["Title"] = "Form";
+}
+
+<form method="post" action="/Controller/ProcessForm">
+    <h2> Dynamic Form </h2>
+    @foreach (var component in Model.components)
+    {
+        <div class="form-group">
+            <div class="form-group">
+                <label for="@component.Name">@component.Name</label>
+                <input type="@component.Type" id="@component.Name" name="@component.Name" class="form-control" />
+            </div>
+        </div>
+    }
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
